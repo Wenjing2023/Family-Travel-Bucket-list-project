@@ -1,0 +1,41 @@
+body {
+  font-family: Roboto, sans-serif;
+}
+
+header {
+  height: 4rem;
+  background-color: #4584b1;
+  color: #fff;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  margin-left: 40px;
+}
+
+nav {
+  background-color: #103594;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+}
+nav > ul > li {
+  font-size: 1.2.rem;
+  list-style: none;
+  margin-right: 25px;
+}
+
+nav > ul > li > a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav > ul > li > a:hover {
+  text-decoration: underline;
+}

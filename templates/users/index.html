@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %} {% for user in users %}
+<section>
+  <p>{{user.name}}</p>
+  <ul>
+    <li>visited</li>
+    <li>bucket_list</li>
+  </ul>
+</section>
+<!-- cities that all  have visited
+    cities that all want to visit ? -->
+{% endfor %} {%endblock %}
