@@ -5,9 +5,10 @@ import repositories.city_repository as city_repository
 
 cities_blueprint = Blueprint("cities", __name__)
 
-# INDEX
+# INDEX - no need to see all cities together
+# select_all_cities_by_counrty_id
 @cities_blueprint.route("/cities")
-def cities():
-    cities = city_repository.select_all()
+def cities(counrty_id):
+    
     return render_template("cities/index.html", cities = cities)
 
