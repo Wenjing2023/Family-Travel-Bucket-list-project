@@ -1,23 +1,43 @@
 body {
   font-family: Roboto, sans-serif;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+h1,
+h2,
+h3,
+p {
+  font-family: "Lucida Console", Monaco, monospace;
+  color: #4b0a63;
 }
 
 header {
   height: 4rem;
-  background-color: #4584b1;
-  color: #fff;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-}
-
-#logo {
-  margin-left: 40px;
+  color: #4b0a63;
+  font-size: 1.5rem;
+  /* display: flex;
+  align-items: center; */
+  text-align: center;
+  font-family: "Lucida Console", Monaco, monospace;
+  margin-top: 40px;
+  padding: 0px;
+  font-weight: bold;
 }
 
 nav {
-  background-color: #103594;
   height: 2.5rem;
+  color: #4b0a63;
   display: flex;
   align-items: center;
 }
@@ -32,10 +52,75 @@ nav > ul > li {
 }
 
 nav > ul > li > a {
-  color: #fff;
+  color: #0c0b0b;
   text-decoration: none;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-weight: bold;
+  font-size: large;
 }
 
 nav > ul > li > a:hover {
   text-decoration: underline;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 3px solid #ddd;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+.btn {
+  border: 0px none;
+  padding: 4px 8px;
+  color: #0a0a0a;
+  cursor: pointer;
+}
+
+.btn--danger {
+  background-color: mistyrose;
+}
+
+.btn--danger:hover {
+  background-color: #ae87a7;
+}
+
+.btn--action:hover {
+  background-color: #ae87a7;
+}
+
+.btn--wrapper {
+  margin: 0px 0px 30px 0px;
+}
+#p {
+  text-align-last: right;
+}
+
+select {
+  width: 150px;
+  padding: 5px 35px 5px 5px;
+  margin: 15px 0;
+  font-size: 0.8em;
+  border: 1px solid #f5c7ef;
+  display: block;
+}
+
+textarea {
+  width: 150px;
+  padding: 5px 35px 5px 5px;
+  margin: 15px 0;
+  font-size: 0.8em;
+  border: 1px solid #f5c7ef;
+  display: block;
+}
+
+:focus {
+  outline-color: transparent;
+  outline-style: none;
 }

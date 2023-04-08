@@ -12,6 +12,10 @@ import repositories.city_repository as city_repository
 from models.visit import Visit
 import repositories.visit_repository as visit_repository
 
+user_repository.delete_all()
+country_repository.delete_all()
+city_repository.delete_all()
+visit_repository.delete_all()
 
 user_1 = User("Wenjing")
 user_repository.save(user_1)
@@ -32,21 +36,43 @@ country_repository.save(country_3)
 
 city_1 = City("Sevilla", country_1)
 city_repository.save(city_1)
-city_2 = City("Edinburgh", country_2)
+city_2 = City("Madrid", country_1)
 city_repository.save(city_2)
-city_3 = City("Gaoan", country_3)
+city_3 = City("Granada", country_1)
 city_repository.save(city_3)
+city_4 = City("Edinburgh", country_2)
+city_repository.save(city_4)
+city_5 = City("London", country_2)
+city_repository.save(city_5)
+city_6 = City("Manchester", country_2)
+city_repository.save(city_6)
+city_7 = City("Gaoan", country_3)
+city_repository.save(city_7)
+city_8 = City("Beijing", country_3)
+city_repository.save(city_8)
+city_9 = City("Shanghai", country_3)
+city_repository.save(city_9)
+
 
 visit_1 = Visit(user_1, city_1, True)
 visit_repository.save(visit_1)
-visit_2 = Visit(user_2, city_2, True)
-visit_repository.save(visit_1)
-visit_3 = Visit(user_3, city_3, False)
-visit_repository.save(visit_3)
-visit_4 = Visit(user_4, city_3, False)
-visit_repository.save(visit_4)
+visit_2 = Visit(user_2, city_1)
+visit_repository.save(visit_2)
 
-# pdb.set_trace()
 
-print(visit_1.city.name +" is visited by " + visit_1.user.name)
-print(visit_2.city.name +" is visited by " + visit_2.user.name)
+
+# cities = user_repository.select_cities(user_2.id)
+# for city in cities:
+#     print(city.__dict__)
+
+# cities = city_repository.select_cities(country_1.id)
+# for city in cities:
+#     print(city.name)
+
+# users = city_repository.select_users(city_1.id)
+# for user in users:
+#     print(city_1.name +" is visited by " + user.name)
+
+visits = visit_repository.select_all()
+for visit in visits:
+    print(visit.city.name + " - " + visit.user.name)

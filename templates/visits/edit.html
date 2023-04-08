@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block content %}
+<h3>Update this record</h3>
+
+<form action="/visits/{{visit.id}}" method="post">
+  <label for="user"> Select a family member:</label>
+  <select name="user_id" id="user">
+    {% for user in users %}
+    <option value="{{user.id}}" {% if user.id == visit.user.id %} selected="selected" {% endif %}>{{user.name}}</option>
+    {% endfor %}
+  </select>
+
+  <label for="city"> Select a city:</label>
+  <select name="city_id" id="city">
+    {% for city in cities %}
+    <option value="{{city.id}}"{% if city.id == visit.city.id %} selected="selected" {% endif %}>{{city.name}} ({{city.country.name}})</option>
+    {% endfor %}
+  </select>
+
+  <label for="visited"> Visited or Wishlist</label>
+  <select name="visited" id="visited">
+    <option value="true"
+    {% if visit.visited == True %} selected="selected" {% endif %}>visited</option>
+    <option value="false"
+    {% if visit.visited == False %} selected="selected" {% endif %}>wishlist</option>
+  </select>
+
+  <button class="btn--action" type="submit">Add a visit/wishlist</button>
+</form>
+
+{%endblock %}

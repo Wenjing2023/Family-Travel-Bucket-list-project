@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+<p>Update a User</p>
+<form action="/users/{{user.id}}" method="POST">
+  <div>
+    <label for="name"> Name: </label>
+    <input type="text" id="name" name="name" value="{{user.name}}" />
+    <input type="submit" />
+  </div>
+</form>
+
+{%endblock %}

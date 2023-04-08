@@ -1,7 +1,6 @@
 from db.run_sql import run_sql
 from models.country import Country
 
-
 # save(country)
 def save(country):
     sql = "INSERT INTO countries (name) VALUES (%s) RETURNING id"
@@ -28,6 +27,9 @@ def select(id):
     if results:
         country = Country(results[0]["name"], results[0]["id"])
     return country
+
 # delete_all()
-# delete(id)
-# update(country)
+def delete_all():
+    sql="DELETE FROM countries"
+    run_sql(sql)
+

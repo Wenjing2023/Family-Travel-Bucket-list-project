@@ -1,11 +1,29 @@
-{% extends "base.html" %} {% block content %} {% for user in users %}
-<section>
-  <p>{{user.name}}</p>
-  <ul>
-    <li>visited</li>
-    <li>bucket_list</li>
-  </ul>
-</section>
-<!-- cities that all  have visited
-    cities that all want to visit ? -->
-{% endfor %} {%endblock %}
+{% extends "base.html" %} {% block content %}
+<h2>Family members</h2>
+<div id="p">
+  <p class="btn--wrapper">
+    <a class="btn btn--action" href="/users/new"> Add a family member </a>
+  </p>
+</div>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+  {% for user in users %}
+  <tr>
+    <td>{{user.name}}</td>
+    <td><a href="/users/{{user.id}}/edit">Edit</a></td>
+    <td>
+      <form action="/users/{{user.id}}/delete" method="POST">
+        <input type="submit" value="Delete this member" />
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{%endblock %}

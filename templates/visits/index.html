@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% block content %}
+<h2>All visits</h2>
+
+<div id="p">
+  <p class="btn--wrapper">
+    <a class="btn btn--action" href="/visits/new"> Add a visit/wishlist </a>
+  </p>
+</div>
+
+<div style="overflow-x: auto">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Edit</th>
+      <th>Delete</th>
+      <th>Visits</th>
+      <th>Wishlist</th>
+    </tr>
+
+    {% for visit in visits %}
+    <tr>
+      <td>{{visit.user.name}}</td>
+      <td><a href="/visits/{{visit.id}}/edit">Edit</a></td>
+      <td>
+        <form action="/visits/{{visit.id}}/delete" method="post">
+          <input
+            class="btn btn--danger"
+            type="submit"
+            value="Delete this visit"
+          />
+        </form>
+      </td>
+
+      {% if visit.visited == True %}
+      <td>{{visit.city.name}}({{visit.city.country.name}})</td>
+      <td></td>
+      {% else %}
+      <td></td>
+      <td>{{visit.city.name}}({{visit.city.country.name}})</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{%endblock %}

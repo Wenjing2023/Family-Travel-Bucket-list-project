@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block content %}
+<h3>Add a visit/wishlist</h3>
+
+<form action="/visits" method="post">
+  <label for="user"> Select a family member:</label>
+  <select name="user_id" id="user">
+    {% for user in users %}
+    <option value="{{user.id}}">{{user.name}}</option>
+    {% endfor %}
+  </select>
+
+  <!-- <label for="country"> Select a country:</label>
+  <select name="country_id" id="country">
+    {% for country in countries %}
+    <option value="{{country.id}}">{{country.name}}</option>
+    {% endfor %}
+  </select> -->
+
+  <label for="city"> Select a city:</label>
+  <select name="city_id" id="city">
+    {% for city in cities %}
+    <option value="{{city.id}}">{{city.name}} ({{city.country.name}})</option>
+    {% endfor %}
+  </select>
+
+  <label for="visited"> Visited or Wishlist</label>
+  <select name="visited" id="visited">
+    <option value="true">visited</option>
+    <option value="false">wishlist</option>
+  </select>
+
+  <button class="btn--action" type="submit">Add a visit/wishlist</button>
+</form>
+
+{%endblock %}
